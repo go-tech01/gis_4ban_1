@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent       ##이 파일의 경로 /
 
 env_list = dict()
 
-local_env =open(os.path.join(BASE_DIR, '.env'))        # 운영체제 상 경로(path) / join 합쳐준다 BASE_DIR, '.env'
+local_env =open(os.path.join(BASE_DIR, '.env'), encoding='utf-8')        # 운영체제 상 경로(path) / join 합쳐준다 BASE_DIR, '.env'
 
 while True:
     line = local_env.readline()     ##한줄씩 읽다가 없으면 나온다 break
