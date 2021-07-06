@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+
+{% include 'head.html' %}
+
 <body>
 
-<h1>TEST</h1>
+{##include문 사용#}
+{% include 'header.html' %}
+
+{##extends 사용 -> 블록을 나눈다 블록을 선언!!#}
+{% block content %}
+{% endblock %}
+
+{% include 'footer.html' %}
 
 </body>
 </html>
