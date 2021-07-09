@@ -10,4 +10,10 @@ def hello_world(request):             ##request 정보가 적혀있다
     # (통신 프로토콜   서버 주소/IP          페이지 경로                쿼리 데이터)
     # return HttpResponse('Hello World!')
     # return render(request, 'base.html')
-    return render(request, 'accountapp/hello_world.html')      ## html를 이용한 view
+    if request.method == "POST":
+        return render(request, 'accountapp/hello_world.html',  ## html를 이용한 view
+                      context={'text':'POST METHOD!'})
+    # elif request.method == "GET":
+    else:
+        return render(request, 'accountapp/hello_world.html',
+                      context={'text':'GET METHOD!'})
