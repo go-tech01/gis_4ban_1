@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
+from accountapp.models import NewModel
 
 
 def hello_world(request):             ##request 정보가 적혀있다
@@ -11,8 +12,17 @@ def hello_world(request):             ##request 정보가 적혀있다
     # return HttpResponse('Hello World!')
     # return render(request, 'base.html')
     if request.method == "POST":
+
+        temp = request.POST.get('input_text')
+
+        new_model = NewModel()
+        new_model.text = temp
+        new_model.save()
+
         return render(request, 'accountapp/hello_world.html',  ## html를 이용한 view
-                      context={'text':'POST METHOD!'})
+                      context={'new_model': new_model})
+                        # context={'text': temp})
+                        # context={'text':'POST METHOD!'})
     # elif request.method == "GET":
     else:
         return render(request, 'accountapp/hello_world.html',
