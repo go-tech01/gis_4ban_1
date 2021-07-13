@@ -19,11 +19,17 @@ def hello_world(request):             ##request 정보가 적혀있다
         new_model.text = temp
         new_model.save()
 
+        data_list = NewModel.objects.all()
+
         return render(request, 'accountapp/hello_world.html',  ## html를 이용한 view
-                      context={'new_model': new_model})
+                      context={'data_list': data_list})
                         # context={'text': temp})
                         # context={'text':'POST METHOD!'})
     # elif request.method == "GET":
     else:
+        data_list = NewModel.objects.all()
         return render(request, 'accountapp/hello_world.html',
-                      context={'text':'GET METHOD!'})
+                      context={'data_list': data_list})
+
+        # return render(request, 'accountapp/hello_world.html',
+        #               context={'text':'GET METHOD!'})
