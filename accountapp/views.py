@@ -1,7 +1,9 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
+from django.urls import reverse
+
 from accountapp.models import NewModel
 
 
@@ -18,11 +20,11 @@ def hello_world(request):             ##request 정보가 적혀있다
         new_model = NewModel()
         new_model.text = temp
         new_model.save()
+        return HttpResponseRedirect(reverse('accountapp:hello_world'))
 
-        data_list = NewModel.objects.all()
-
-        return render(request, 'accountapp/hello_world.html',  ## html를 이용한 view
-                      context={'data_list': data_list})
+        # data_list = NewModel.objects.all()
+        # return render(request, 'accountapp/hello_world.html',  ## html를 이용한 view
+        #               context={'data_list': data_list})
                         # context={'text': temp})
                         # context={'text':'POST METHOD!'})
     # elif request.method == "GET":
