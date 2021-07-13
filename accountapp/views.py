@@ -1,8 +1,11 @@
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView
 
 from accountapp.models import NewModel
 
@@ -20,6 +23,7 @@ def hello_world(request):             ##request 정보가 적혀있다
         new_model = NewModel()
         new_model.text = temp
         new_model.save()
+
         return HttpResponseRedirect(reverse('accountapp:hello_world'))
 
         # data_list = NewModel.objects.all()
@@ -35,3 +39,11 @@ def hello_world(request):             ##request 정보가 적혀있다
 
         # return render(request, 'accountapp/hello_world.html',
         #               context={'text':'GET METHOD!'})
+
+
+class AccountCreateView(CreateView): ## generic ~!!!
+    model = User                     ## 커스텀 마이징 할 수 있음
+    form_class = UserCreationForm    ## 커스텀 마이징 할 수 있음
+    success_url = reverse_lazy('accountapp:hello_world')   ## 함수에서는 reverse / 클래스에서는 _lazy 를 써야함 - 불러오는 방식의 차이
+    template_name = 'accountapp/create.html'
+
