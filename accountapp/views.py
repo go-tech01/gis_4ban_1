@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 
 from accountapp.models import NewModel
 
@@ -37,8 +37,8 @@ def hello_world(request):             ##request 정보가 적혀있다
         return render(request, 'accountapp/hello_world.html',
                       context={'data_list': data_list})
 
-        # return render(request, 'accountapp/hello_world.html',
-        #               context={'text':'GET METHOD!'})
+    #     # return render(request, 'accountapp/hello_world.html',
+    #     #               context={'text':'GET METHOD!'})
 
 
 class AccountCreateView(CreateView): ## generic ~!!!
@@ -51,3 +51,10 @@ class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'
     template_name = 'accountapp/detail.html'  # 렌더링은 필요함 -> 라우팅
+
+class AccountUpdateView(UpdateView):
+    model = User
+    form_class = UserCreationForm
+    context_object_name = 'target_user'
+    success_url = reverse_lazy('accountapp:hello_world')    # 일단...은... 나중에 detail로 ...
+    template_name = 'accountapp/update.html'

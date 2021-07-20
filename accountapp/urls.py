@@ -1,6 +1,6 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
-from accountapp.views import hello_world, AccountCreateView, AccountDetailView
+from accountapp.views import hello_world, AccountCreateView, AccountDetailView, AccountUpdateView
 
 app_name = 'accountapp' #주소를 일일이 쓰기 힘드기 때문에 설정
 
@@ -18,4 +18,6 @@ urlpatterns = [
     # name 설정도 주소를 일일이 쓰기 힘드기 때문에 설정
     path('create/', AccountCreateView.as_view(), name='create'),
     path('detail/<int:pk>', AccountDetailView.as_view(), name='detail'),
+    path('update/<int:pk>', AccountUpdateView.as_view(), name='update'),   ## pk - 프라이머리 키 -> 숫자로 되어있다
+
 ]
