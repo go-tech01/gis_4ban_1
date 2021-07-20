@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
+from accountapp.forms import AccountCreationForm
 from accountapp.models import NewModel
 
 
@@ -54,7 +55,7 @@ class AccountDetailView(DetailView):
 
 class AccountUpdateView(UpdateView):
     model = User
-    form_class = UserCreationForm
+    form_class = AccountCreationForm          ## 상속을 만들어서 새로운 클래스 만들어서 회원 아이디 비활성화
     context_object_name = 'target_user'
     success_url = reverse_lazy('accountapp:hello_world')    # 일단...은... 나중에 detail로 ...
     template_name = 'accountapp/update.html'
