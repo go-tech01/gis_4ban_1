@@ -7,7 +7,9 @@
             <h4>Create Profile</h4>
         </div>
         <div>
-            <form action="{% url 'profileapp:create'%}" method="post">
+            <form action="{% url 'profileapp:create'%}"
+                  enctype="multipart/form-data"  ## 파일 전송을 위해
+                  method="post">
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 <div class="m-5">
