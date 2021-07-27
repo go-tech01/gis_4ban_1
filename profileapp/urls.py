@@ -1,5 +1,11 @@
+from django.urls import path
 
+from profileapp.views import ProfileCreatView
+
+app_name = 'profileapp'
+
+#profileapp:create
 
 urlpatterns = [
-    # path('hello_world/', hello_world, name='hello_world'),
+    path('create/', ProfileCreatView.as_view(), name='create'),
 ]
