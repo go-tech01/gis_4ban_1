@@ -27,3 +27,7 @@
     border-radius: 20rem;
     object-fit: cover;  /* 잘라내기 */
 }
+
+.NNS_B{
+    font-family: "NanumSquareB", cursive;
+}
