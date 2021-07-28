@@ -4,11 +4,11 @@
 
     <div class="text-center mw-500 m-auto"> {# 부트스 #}
         <div class="m-5">
-            <h4>Create Profile</h4>
+            <h4>Update Profile</h4>
         </div>
         <div>
-            <form action="{% url 'profileapp:create'%}"
-                  enctype="multipart/form-data"  {# 파일 전송을 위해 #}
+            <form action="{% url 'profileapp:update' pk=target_profile.pk %}"
+                  enctype="multipart/form-data"
                   method="post">
                 {% csrf_token %}
                 {% bootstrap_form form %}
