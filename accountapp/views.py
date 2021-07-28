@@ -67,6 +67,7 @@ class AccountCreateView(CreateView): ## generic ~!!!
     success_url = reverse_lazy('accountapp:hello_world')   ## 함수에서는 reverse / 클래스에서는 _lazy 를 써야함 - 불러오는 방식의 차이
     template_name = 'accountapp/create.html'
 
+
 class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'
@@ -84,8 +85,12 @@ class AccountUpdateView(UpdateView):
     model = User
     form_class = AccountCreationForm          ## 상속을 만들어서 새로운 클래스 만들어서 회원 아이디 비활성화
     context_object_name = 'target_user'
-    success_url = reverse_lazy('accountapp:hello_world')    # 일단...은... 나중에 detail로 ...
+    # success_url = reverse_lazy('accountapp:hello_world')    # 일단...은... 나중에 detail로 ...
     template_name = 'accountapp/update.html'
+    
+    def get_success_url(self):
+        return reverse('accountapp:detail', kwargs={'pk':self.object.pk})
+
 
     # 클래스 안에 함수는 메서드이기 떄문에 decorotor를 매서드에서 쓸수 있게 해야한다.
     # @login_required
