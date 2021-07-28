@@ -11,9 +11,11 @@
                      alt="profile image"> {# 알터내이터 못 받아왔을때 대체하는 문자형 #}
                 <h2 class="NNS_B">
                     {{ target_user.profile.nickname }}
+                    {% if target_user == user %}
                     <a href="{% url 'profileapp:update' pk=target_user.pk %}">
                        edit
                     </a>
+                    {% endif %}
                 </h2>
                 <h5>{{ target_user.profile.message }}</h5>
             {% else %}
