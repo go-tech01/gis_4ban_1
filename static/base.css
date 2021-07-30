@@ -38,8 +38,11 @@
     box-shadow: 0 0 3px black; /* 1, 2 - 가로세로 위치, 3 - 그림자의 크기, 4 - 색 */
     border-radius: 20rem;
     padding: 0.3rem;
+    /*font-size: 2rem;
+    !*아이콘 사이즈 설정이지만 material-icons에서 우선순위이기 떄문에 html파일에서 style로 변경*!*/
 }
-/* css 선택자 - 마우스를 올려놨을때 */
+
+/* css 선택자 - hover - 마우스를 올려놨을때 */
 .round_button:hover {
     color: dimgray;
 }
