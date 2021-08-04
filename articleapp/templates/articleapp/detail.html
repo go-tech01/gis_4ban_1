@@ -14,8 +14,12 @@
             {{ target_article.content }}
             <div>
                 <a href="{% url 'articleapp:update' pk=target_article.pk %}"
-                    class="btn btn-success rounded-pill px-5">
+                    class="btn btn-success rounded-pill px-5 mt-3">
                     Update
+                </a>
+                <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
+                    class="btn btn-danger rounded-pill px-5 mt-3">
+                    Delete
                 </a>
             </div>
         </div>
