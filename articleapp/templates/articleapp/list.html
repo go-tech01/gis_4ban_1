@@ -48,8 +48,10 @@
 {#          <img src="https://picsum.photos/200/400" alt="">#}
 {#      </div>#}
 
-    <script src="{% static 'js/magicgrid.js' %}">
-    </script>
+    <script src="{% static 'js/magicgrid.js' %}"></script>
+
+    {# 페이지 버튼   #}
+    {% include 'snippets/pagination.html' %}
 
 {% endblock %}
 
