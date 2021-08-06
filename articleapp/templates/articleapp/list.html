@@ -53,5 +53,16 @@
     {# 페이지 버튼   #}
     {% include 'snippets/pagination.html' %}
 
+    <div class="text center my-5">
+        <a href="{% url 'articleapp:create' %}"
+            class="btn btn-dark round-pill material-icons">
+            brush
+        </a>
+        <a href="{% url 'articleapp:create' %}"
+            class="btn btn-outline-dark round-pill px-5 material-icons">
+            Create Artice
+        </a>
+    </div>
+
 {% endblock %}
 
