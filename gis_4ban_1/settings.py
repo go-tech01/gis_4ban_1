@@ -43,7 +43,7 @@ SECRET_KEY = env_list['SECRET_KEY']                ##env_list 딕셔러리 만�
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]      #"*" 모두 허용한다
 
 
 # Application definition
