@@ -279,7 +279,8 @@ let magicGrid = new MagicGrid({
   container: '.container',
   animate: true,
   // animate: false,
-  gutter: 30,
+  // gutter: 30,
+  gutter: 12,
   static: true,
   useMin: true
 });
