@@ -7,7 +7,7 @@
             <h4>Create Project</h4>
         </div>
         <div>
-            <form action="{% url 'profileapp:create'%}" method="post"
+            <form action="{% url 'projectapp:create'%}" method="post"
                   enctype="multipart/form-data">
                 {% csrf_token %}
                 {% bootstrap_form form %}
