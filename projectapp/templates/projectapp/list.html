@@ -31,12 +31,11 @@
                 </a>
                 <span class="my-2 NNS_B">{{ project.name | truncatechars:10 }}</span> {# templates filter #}
             </div>
-
         {% endfor %}
     </div>
     <script src="{% static 'js/magicgrid.js' %}"></script>
 
-    {# 페이지 버튼   #}
+    {# 페이지 버튼 #}
     {% include 'snippets/pagination.html' %}
     <div class="text-center my-5">
         <a href="{% url 'projectapp:create' %}" class="btn btn-outline-dark rounded-pill px-5">
