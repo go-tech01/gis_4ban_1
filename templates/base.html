@@ -9,6 +9,14 @@
 {% include 'header.html' %}
 <hr>
 
+{% for message in messages %}
+    <div class="text-center">
+        <div class="btn btn-success rounded-pill px-5">
+            {{ message }}
+        </div>
+    </div>
+{% endfor %}
+
 {##extends 사용 -> 블록을 나눈다 블록을 선언!!#}
 {% block content %}
 {% endblock %}
