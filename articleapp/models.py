@@ -16,3 +16,4 @@ class Article(models.Model):
     # 장문은 TextField
     created_at = models.DateField(auto_now_add=True, null=True)
 
+    like = models.IntegerField(default=0)
