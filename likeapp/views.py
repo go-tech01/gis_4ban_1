@@ -19,7 +19,7 @@ class LikeArticleView(RedirectView):
         like_record = LikeRecord.objects.filter(user=user, article=article)
         if like_record.exists():
             # 좋아요 반영 X
-            messages.add_message(request,messages.ERROR, '좋아요는 한번만 가능합니다')
+            messages.add_message(request, messages.ERROR, '좋아요는 한번만 가능합니다')
             return HttpResponseRedirect(reverse('articleapp:detail', kwargs={'pk':kwargs['article_pk']}))
         else:
             # 좋아요 반영 O
