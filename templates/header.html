@@ -3,44 +3,48 @@
     <div class="pragmatic_header_logo">
         {# 마진 값 하나 - 4방향  / 값 2개 얻으면 - 2방향 ( 상하, 좌우) / 값 4개도 있음#}
         {# Pacifico 폰트가 안 될때 cursive 폰트를 써라#}
-        <h1>Pragmatic</h1>
+        <h1>
+            <a href="{% url 'home' %}">
+                Pragmatic
+            </a>
+        </h1>
     </div>
     <div class="pragmatic_header_button">
-        <span>
+        <span class="mx-2">
             <a href="{% url 'articleapp:list' %}">
                 Articles
             </a>
         </span>
-        <span>
+        <span class="mx-2">
             <a href="{% url 'projectapp:list' %}">
                 Projects
             </a>
         </span>
         {% if user.is_authenticated %}
-        <span>
+        <span class="mx-2">
             <a href="{% url 'subscribeapp:list' %}">
                 Subscription
             </a>
         </span>
         {% endif %}
         {% if not user.is_authenticated %}     {# 로그인 여부 #}
-        <span>
+        <span class="mx-2">
             <a href="{% url 'accountapp:login' %}">
                 Login
             </a>
         </span>
-        <span>
+        <span class="mx-2">
             <a href="{% url 'accountapp:create' %}">
                 Sign Up
             </a>
         </span>
         {% else %}
-        <span>
+        <span class="mx-2">
             <a href="{% url 'accountapp:detail' pk=user.pk %}">
                 MyPage
             </a>
         </span>
-        <span>
+        <span class="mx-2">
             <a href="{% url 'accountapp:logout' %}">
                 LogOut
             </a>
