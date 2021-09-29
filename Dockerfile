@@ -8,8 +8,6 @@ RUN git clone https://github.com/go-tech01/gis_4ban_1.git
 
 WORKDIR /home/gis_4ban_1/
 
-#RUN echo "SECRET_KEY=django-insecure-)yo2fo5n7^c&17y0g#4!8q4-ns=-0qm@j2(7gl3ra7dfm1&_mz" > .env
-
 RUN pip install -r requirements.txt
 
 RUN pip install gunicorn
